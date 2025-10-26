@@ -9,11 +9,11 @@ namespace TP7.Controllers
     [Route("api/[controller]")]
     public class PresupuestoController : ControllerBase
     {
-        private readonly PresupuestoRepository presupuestoRepository;
+        private readonly PresupuestosRepository presupuestoRepository;
 
         public PresupuestoController()
         {
-            presupuestoRepository = new PresupuestoRepository();
+            presupuestoRepository = new PresupuestosRepository();
         }
 
         // POST /api/Presupuesto

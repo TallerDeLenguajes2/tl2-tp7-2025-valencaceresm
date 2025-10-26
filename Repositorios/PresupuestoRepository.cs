@@ -4,7 +4,7 @@ using TP7.Models;
 
 namespace TP7.Repositorios
 {
-    public class PresupuestoRepository
+    public class PresupuestosRepository
     {
         private string cadenaConexion = "Data Source=tienda.db;Cache=Shared";
 
