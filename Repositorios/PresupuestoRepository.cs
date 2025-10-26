@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using System.Data.Sqlite;
+using Microsoft.Data.Sqlite;
 using TP7.Models;
 
 namespace TP7.Repositorios
 {
-    public class PresupuestosRepository
+    public class PresupuestoRepository
     {
         private string cadenaConexion = "Data Source=tienda.db;Cache=Shared";
 
@@ -45,7 +45,7 @@ namespace TP7.Repositorios
                         {
                             IdPresupuesto = reader.GetInt32(0),
                             nombreDestinatario = reader.GetString(1),
-                            FechaCreacion = DateTime.Parse(reader.GetString(2)),
+                            FechaCreacion = reader.GetString(2),//DateTime.Parse(reader.GetString(2))
                             detalle = new List<PresupuestoDetalle>()
                         };
                         lista.Add(p);
@@ -79,7 +79,7 @@ namespace TP7.Repositorios
                             {
                                 IdPresupuesto = reader.GetInt32(0),
                                 nombreDestinatario = reader.GetString(1),
-                                FechaCreacion = DateTime.Parse(reader.GetString(2)),
+                                FechaCreacion = reader.GetString(2),//DateTime.Parse(reader.GetString(2))
                                 detalle = new List<PresupuestoDetalle>()
                             };
                         }
@@ -106,7 +106,7 @@ namespace TP7.Repositorios
                             {
                                 idProducto = reader.GetInt32(0),
                                 descripcion = reader.GetString(1),
-                                precio = reader.GetInt32(2)
+                                precio = reader.GetDouble(2)
                             };
 
                             PresupuestoDetalle det = new PresupuestoDetalle()
