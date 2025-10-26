@@ -7,11 +7,11 @@ namespace TP7.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductosController : ControllerBas
+    public class ProductoController : ControllerBase
     {
         private readonly ProductoRepository productoRepository;
 
-        public ProductosController()
+        public ProductoController()
         {
             productoRepository = new ProductoRepository();
         }

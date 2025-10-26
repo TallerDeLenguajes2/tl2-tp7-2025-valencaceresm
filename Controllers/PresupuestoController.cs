@@ -7,20 +7,20 @@ namespace TP7.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PresupuestosController : ControllerBase
+    public class PresupuestoController : ControllerBase
     {
-        private readonly PresupuestosRepository presupuestosRepository;
+        private readonly PresupuestoRepository presupuestoRepository;
 
-        public PresupuestosController()
+        public PresupuestoController()
         {
-            presupuestosRepository = new PresupuestosRepository();
+            presupuestoRepository = new PresupuestoRepository();
         }
 
         // POST /api/Presupuesto
         [HttpPost]
         public ActionResult CrearPresupuesto(Presupuesto nuevoPresupuesto)
         {
-            presupuestosRepository.Crear(nuevoPresupuesto);
+            presupuestoRepository.Crear(nuevoPresupuesto);
             return Ok("Presupuesto creado correctamente ✅");
         }
 
@@ -28,7 +28,7 @@ namespace TP7.Controllers
         [HttpGet]
         public ActionResult<List<Presupuesto>> ListarPresupuestos()
         {
-            var lista = presupuestosRepository.Listar();
+            var lista = presupuestoRepository.Listar();
             return Ok(lista);
         }
 
@@ -36,7 +36,7 @@ namespace TP7.Controllers
         [HttpGet("{id}")]
         public ActionResult<Presupuesto> ObtenerPresupuesto(int id)
         {
-            var presupuesto = presupuestosRepository.ObtenerPorId(id);
+            var presupuesto = presupuestoRepository.ObtenerPorId(id);
             if (presupuesto == null)
                 return NotFound($"No se encontró el presupuesto con ID {id}");
             return Ok(presupuesto);
@@ -46,7 +46,7 @@ namespace TP7.Controllers
         [HttpPost("{id}/ProductoDetalle")]
         public ActionResult AgregarProductoAlPresupuesto(int id, int idProducto, int cantidad)
         {
-            presupuestosRepository.AgregarProducto(id, idProducto, cantidad);
+            presupuestoRepository.AgregarProducto(id, idProducto, cantidad);
             return Ok($"Producto {idProducto} agregado al presupuesto {id} con cantidad {cantidad} ✅");
         }
 
@@ -54,7 +54,7 @@ namespace TP7.Controllers
         [HttpDelete("{id}")]
         public ActionResult EliminarPresupuesto(int id)
         {
-            bool eliminado = presupuestosRepository.Eliminar(id);
+            bool eliminado = presupuestoRepository.Eliminar(id);
             if (eliminado)
                 return NoContent();
             else

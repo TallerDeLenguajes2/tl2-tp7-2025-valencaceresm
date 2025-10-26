@@ -1,0 +1,8 @@
+C:\Users\Val\tl2-tp7-2025-valencaceresm\obj\Debug\net8.0\tl2-tp7-2025-valencaceresm.csproj.AssemblyReference.cache
+C:\Users\Val\tl2-tp7-2025-valencaceresm\obj\Debug\net8.0\tl2-tp7-2025-valencaceresm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Val\tl2-tp7-2025-valencaceresm\obj\Debug\net8.0\tl2-tp7-2025-valencaceresm.AssemblyInfoInputs.cache
+C:\Users\Val\tl2-tp7-2025-valencaceresm\obj\Debug\net8.0\tl2-tp7-2025-valencaceresm.AssemblyInfo.cs
+C:\Users\Val\tl2-tp7-2025-valencaceresm\obj\Debug\net8.0\tl2-tp7-2025-valencaceresm.csproj.CoreCompileInputs.cache
+C:\Users\Val\tl2-tp7-2025-valencaceresm\obj\Debug\net8.0\tl2-tp7-2025-valencaceresm.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Val\tl2-tp7-2025-valencaceresm\obj\Debug\net8.0\tl2-tp7-2025-valencaceresm.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Val\tl2-tp7-2025-valencaceresm\obj\Debug\net8.0\tl2-tp7-2025-valencaceresm.sourcelink.json
