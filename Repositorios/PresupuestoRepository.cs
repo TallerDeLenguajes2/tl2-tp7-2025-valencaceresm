@@ -11,12 +11,12 @@ namespace TP7.Repositorios
         // Crear nuevo presupuesto
         public void Crear(Presupuesto p)
         {
-            using (SQLiteConnection conexion = new SQLiteConnection(cadenaConexion))
+            using (SqliteConnection conexion = new SqliteConnection(cadenaConexion))
             {
                 conexion.Open();
                 string sql = "INSERT INTO Presupuestos (nombreDestinatario, FechaCreacion) VALUES (@nombreDestinatario, @fecha)";
 
-                using (var cmd = new SQLiteCommand(sql, conexion))
+                using (var cmd = new SqliteCommand(sql, conexion))
                 {
                     cmd.Parameters.AddWithValue("@nombreDestinatario", p.nombreDestinatario);
                     cmd.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("yyyy-MM-dd"));
@@ -30,12 +30,12 @@ namespace TP7.Repositorios
         {
             List<Presupuesto> lista = new List<Presupuesto>();
 
-            using (SQLiteConnection conexion = new SQLiteConnection(cadenaConexion))
+            using (SqliteConnection conexion = new SqliteConnection(cadenaConexion))
             {
                 conexion.Open();
                 string sql = "SELECT * FROM Presupuestos";
 
-                using (var cmd = new SQLiteCommand(sql, conexion))
+                using (var cmd = new SqliteCommand(sql, conexion))
 
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -60,14 +60,14 @@ namespace TP7.Repositorios
         {
             Presupuesto p = null;
 
-            using (SQLiteConnection conexion = new SQLiteConnection(cadenaConexion))
+            using (SqliteConnection conexion = new SqliteConnection(cadenaConexion))
             {
                 conexion.Open();
 
                 // Obtener datos del presupuesto
                 string sqlPres = "SELECT * FROM Presupuestos WHERE IdPresupuesto = @id";
 
-                using (var cmd = new SQLiteCommand(sqlPres, conexion))
+                using (var cmd = new SqliteCommand(sqlPres, conexion))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
 
@@ -94,7 +94,7 @@ namespace TP7.Repositorios
                                   JOIN Productos pr ON pd.IdProducto = pr.idProducto
                                   WHERE pd.IdPresupuesto = @id";
 
-                using (var cmd = new SQLiteCommand(sqlDet, conexion))
+                using (var cmd = new SqliteCommand(sqlDet, conexion))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
 
@@ -126,12 +126,12 @@ namespace TP7.Repositorios
         // Agregar un producto a un presupuesto existente
         public void AgregarProducto(int idPresupuesto, int idProducto, int cantidad)
         {
-            using (SQLiteConnection conexion = new SQLiteConnection(cadenaConexion))
+            using (SqliteConnection conexion = new SqliteConnection(cadenaConexion))
             {
                 conexion.Open();
                 string sql = "INSERT INTO PresupuestosDetalle (IdPresupuesto, IdProducto, cantidad) VALUES (@idPres, @idProd, @cant)";
 
-                using (var cmd = new SQLiteCommand(sql, conexion))
+                using (var cmd = new SqliteCommand(sql, conexion))
                 {
                     cmd.Parameters.AddWithValue("@idPres", idPresupuesto);
                     cmd.Parameters.AddWithValue("@idProd", idProducto);
@@ -144,14 +144,14 @@ namespace TP7.Repositorios
         // Eliminar un presupuesto (y su detalle)
         public bool Eliminar(int id)
         {
-            using (SQLiteConnection conexion = new SQLiteConnection(cadenaConexion))
+            using (SqliteConnection conexion = new SqliteConnection(cadenaConexion))
             {
                 conexion.Open();
 
                 // Eliminar detalles asociados
                 string sqlDet = "DELETE FROM PresupuestosDetalle WHERE IdPresupuesto = @id";
 
-                using (var cmd = new SQLiteCommand(sqlDet, conexion))
+                using (var cmd = new SqliteCommand(sqlDet, conexion))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
@@ -160,7 +160,7 @@ namespace TP7.Repositorios
                 // Eliminar presupuesto
                 string sqlPres = "DELETE FROM Presupuestos WHERE IdPresupuesto = @id";
 
-                using (var cmd = new SQLiteCommand(sqlPres, conexion))
+                using (var cmd = new SqliteCommand(sqlPres, conexion))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
                     int filas = cmd.ExecuteNonQuery();

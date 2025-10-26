@@ -5,7 +5,7 @@ namespace TP7.Repositorios
 {
     public class ProductoRepository
     {
-        private string connectionString = "Data Source=Tienda.db;";
+        private string connectionString = "Data Source=tienda.db;";
 
         public List<Producto> GetAll()
         {
